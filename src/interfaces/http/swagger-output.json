@@ -1,0 +1,228 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Sistema de Gestão e Monitoramento de Agrotôxicos",
+    "version": "1.0.0",
+    "description": ""
+  },
+  "host": "192.168.0.15:3000/api/v1",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "description": "Bearer <token>"
+    }
+  },
+  "paths": {
+    "/todo/": {
+      "post": {
+        "tags": [
+          "Todo"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id_todo": {
+                  "type": "string",
+                  "example": "1"
+                }
+              },
+              "required": [
+                "id_todo"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Todo"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Skip",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "columnSearch",
+            "in": "query",
+            "description": "Coluna para pesquisa",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "operatorSearch",
+            "in": "query",
+            "description": "Operador de pesquisa: contains, startsWith, endsWith, equals",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Filtro por coluna",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "name": "columnFilter",
+            "in": "query",
+            "description": "Coluna para filtro",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "orderBy",
+            "in": "query",
+            "description": "Ordenação",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "columnOrderBy",
+            "in": "query",
+            "description": "Coluna para ordenação",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/todo/{id}": {
+      "put": {
+        "tags": [
+          "Todo"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id_todo",
+            "in": "path",
+            "description": "Todo ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "nome"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "descricao"
+                }
+              },
+              "required": [
+                "name",
+                "description"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Todo"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id_todo",
+            "in": "path",
+            "description": "Todo ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    }
+  },
+  "explorer": true
+}

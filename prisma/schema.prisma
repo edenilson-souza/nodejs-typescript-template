@@ -1,0 +1,39 @@
+generator client {
+    provider      = "prisma-client-js"
+    binaryTargets = ["native", "linux-musl", "debian-openssl-1.1.x", "rhel-openssl-1.0.x", "darwin"]
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model Todo {
+    id_todo     String    @id @default(uuid())
+    id_external String
+    name        String
+    description String
+    status      String
+    active      Boolean   @default(true)
+    created_at  DateTime  @default(now())
+    updated_at  DateTime  @updatedAt
+    deleted_at  DateTime?
+
+    @@map("todo")
+}
+
+model Log_Atividade {
+    id_log     String    @id @default(uuid())
+    message    String
+    level      String
+    entity     String
+    data       Json?
+    action     String?
+    timestamp  DateTime?
+    created_by String?
+    created_at DateTime  @default(now())
+    updated_at DateTime  @updatedAt
+    deleted_at DateTime?
+
+    @@map("log_atividade")
+}

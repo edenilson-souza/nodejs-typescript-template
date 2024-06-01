@@ -1,0 +1,26 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "npm: build",
+            "type": "shell",
+            "command": "npm",
+            "args": ["run", "build"],
+            "problemMatcher": ["$tsc"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+        /*  {
+            "label": "npm: stop",
+            "type": "shell",
+            "command": "taskkill /f /fi \"WindowTitle eq npm run\" /im node.exe",
+            "windows": {
+                "command": "taskkill /f /fi \"WINDOWTITLE eq npm run\" /im node.exe"
+            },
+            "isBackground": true,
+            "problemMatcher": []
+        } */
+    ]
+}
